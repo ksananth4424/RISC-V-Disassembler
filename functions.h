@@ -5,6 +5,34 @@
 
 using namespace std;
 
+unsigned int imm20(unsigned int a){
+    unsigned int temp = a>>31;
+    return temp;
+}
+
+unsigned int imm101(unsigned int a){
+    unsigned int temp1 = a<<1;
+    unsigned int temp2 = temp1>>22;
+    return temp2;
+}
+
+unsigned int imm11(unsigned int a){
+    unsigned int temp1 = a<<11;
+    unsigned int temp2 = temp1>>31;
+    return temp2;
+}
+
+unsigned int imm1912(unsigned int a){
+    unsigned int temp1 = a<<12;
+    unsigned int temp2 = temp1>>25;
+    return temp2;
+}
+
+unsigned int imm3112(unsigned int a){
+    unsigned int temp = a>>12;
+    return temp;
+}
+
 unsigned int imm1(unsigned int a){
     unsigned int temp = a>>25;
     return temp;
@@ -69,4 +97,28 @@ int convert(string s) {
         base = base*16;
     }
    return temp;
+}
+
+void reverse(string& str)
+{
+    int n = str.length();
+    for (int i = 0; i < n / 2; i++)
+        swap(str[i], str[n - 1 - i]);
+}
+
+string convertHexa(int number)
+{
+    string hexa;
+    while (number)
+    {
+        int rem = number % 16;
+        if (rem < 10)
+            hexa.push_back(rem + '0');
+        else
+            hexa.push_back(rem - 10 + 'A');
+
+        number = number / 16;
+    }
+    reverse(hexa);
+    return hexa;
 }

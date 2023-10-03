@@ -3,6 +3,8 @@
 #include <fstream>
 #include <vector>
 #include "functions.h"
+#include "J_format.cpp"
+#include "U_format.cpp"
 #include "R_format.cpp"
 #include "I_format.cpp"
 #include "S_format.cpp"
@@ -39,9 +41,9 @@ int main(){
         }else if(numopcode == 99){
             // outputB(input[i]);
         }else if(numopcode == 111){
-            // outputJ(input[i]);
+            outputJ(input[i]);
         }else if(numopcode == 55){
-            outputU(input[i], opcode);
+            outputU(input[i]);
         }
     }
 }

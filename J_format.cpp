@@ -7,17 +7,12 @@ using namespace std;
 
 void outputJ(string temp){
     unsigned int decimal = convert(temp);
-    unsigned int numfunct7 = funct7(decimal);
-    unsigned int numrs2 = rs2(decimal);
-    unsigned int numrs1 = rs1(decimal);
-    unsigned int numfunct3 = funct3(decimal);
+    unsigned int numimm20 = imm20(decimal)<<20;
+    unsigned int numimm101 = imm101(decimal)<<1;
+    unsigned int numimm11 = imm11(decimal)<<11;
+    unsigned int numimm1912 = imm1912(decimal)<<12;
+    unsigned int num = (numimm20 + numimm1912 + numimm11 + numimm101)/4;
     unsigned int numrd = rd(decimal);
-    if(numfunct7 == 0 && numfunct3 == 0)cout<<"add x"<<numrd<<", x"<<numrs1<<", x"<<numrs2<<endl;
-    if(numfunct7 == 32 && numfunct3 == 0)cout<<"sub x"<<numrd<<", x"<<numrs1<<", x"<<numrs2<<endl;
-    if(numfunct7 == 0 && numfunct3 == 4)cout<<"xor x"<<numrd<<", x"<<numrs1<<", x"<<numrs2<<endl;
-    if(numfunct7 == 0 && numfunct3 == 6)cout<<"or x"<<numrd<<", x"<<numrs1<<", x"<<numrs2<<endl;
-    if(numfunct7 == 0 && numfunct3 == 7)cout<<"and x"<<numrd<<", x"<<numrs1<<", x"<<numrs2<<endl;
-    if(numfunct7 == 0 && numfunct3 == 1)cout<<"sll x"<<numrd<<", x"<<numrs1<<", x"<<numrs2<<endl;
-    if(numfunct7 == 0 && numfunct3 == 5)cout<<"srl x"<<numrd<<", x"<<numrs1<<", x"<<numrs2<<endl;
-    if(numfunct7 == 32 && numfunct3 == 5)cout<<"sra x"<<numrd<<", x"<<numrs1<<", x"<<numrs2<<endl;
+    cout<<"jal x"<<numrd<<", "<<num<<endl;
+    return num;
 }
