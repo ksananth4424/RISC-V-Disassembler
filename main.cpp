@@ -33,17 +33,24 @@ int main(){
     for(int i=0; i<input.size(); i++){
         unsigned int numopcode = opcode(convert(input[i]));
         if(numopcode==51){
-            outputR(input[i]);
+            outputR(input[i], i);
         }else if(numopcode==35){
-            outputS(input[i]);
-        }else if(numopcode == 38 || numopcode == 3 || numopcode == 103){
-            outputI(input[i], numopcode);
+            outputS(input[i], i);
+        }else if(numopcode == 19 || numopcode == 3 || numopcode == 103){
+            outputI(input[i], numopcode, i);
         }else if(numopcode == 99){
-            // outputB(input[i]);
+            // outputB(input[i], i);
         }else if(numopcode == 111){
-            outputJ(input[i]);
+            outputJ(input[i], i);
         }else if(numopcode == 55){
-            outputU(input[i]);
+            outputU(input[i], i);
         }
+    }
+    for(auto x: labels){
+        output[x.first] += "L1";
+        output[x.first + x.second] = "L1: " + output[x.first + x.second];
+    }
+    for(int i=0; i<output.size(); i++){
+        cout<<output[i]<<endl;
     }
 }

@@ -5,6 +5,9 @@
 
 using namespace std;
 
+vector<string> output;
+vector<pair<int, int>> labels;
+
 unsigned int imm20(unsigned int a){
     unsigned int temp = a>>31;
     return temp;

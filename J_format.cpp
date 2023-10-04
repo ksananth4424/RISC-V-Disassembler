@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void outputJ(string temp){
+void outputJ(string temp, int i){
     unsigned int decimal = convert(temp);
     unsigned int numimm20 = imm20(decimal)<<20;
     unsigned int numimm101 = imm101(decimal)<<1;
@@ -13,6 +13,9 @@ void outputJ(string temp){
     unsigned int numimm1912 = imm1912(decimal)<<12;
     unsigned int num = (numimm20 + numimm1912 + numimm11 + numimm101)/4;
     unsigned int numrd = rd(decimal);
-    cout<<"jal x"<<numrd<<", "<<num<<endl;
-    return num;
+    string ans = "jal x";
+    ans+= to_string(numrd);
+    ans+= ", ";
+    labels.push_back({i-1, num});
+    output.push_back(ans);
 }
