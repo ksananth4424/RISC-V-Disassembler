@@ -4,6 +4,7 @@
 #include <vector>
 #include <unordered_map>
 #include "functions.h"
+#include "B_format.cpp"
 #include "J_format.cpp"
 #include "U_format.cpp"
 #include "R_format.cpp"
@@ -40,7 +41,7 @@ int main(){
         }else if(numopcode == 19 || numopcode == 3 || numopcode == 103){
             outputI(input[i], numopcode, i);
         }else if(numopcode == 99){
-            // outputB(input[i], i);
+            outputB(input[i], i);
         }else if(numopcode == 111){
             outputJ(input[i], i);
         }else if(numopcode == 55){

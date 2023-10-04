@@ -8,9 +8,32 @@ using namespace std;
 vector<string> output;
 unordered_map<int, vector<int>> labels;
 
+unsigned int imm105(unsigned int a){
+    unsigned int temp1 = a<<1;
+    unsigned int temp2 = a>>26;
+    return temp2;
+}
+
 unsigned int imm20(unsigned int a){
     unsigned int temp = a>>31;
     return temp;
+}
+
+unsigned int imm12(unsigned int a){
+    unsigned int temp = a>>31;
+    return temp;
+}
+
+unsigned int imm41(unsigned int a){
+    unsigned int temp1 = a<<20;
+    unsigned int temp2 = temp1>>28;
+    return temp2;
+}
+
+unsigned int imm11b(unsigned int a){
+    unsigned int temp1 = a<<24;
+    unsigned int temp2 = temp1>>31;
+    return temp2;
 }
 
 unsigned int imm101(unsigned int a){
@@ -19,7 +42,7 @@ unsigned int imm101(unsigned int a){
     return temp2;
 }
 
-unsigned int imm11(unsigned int a){
+unsigned int imm11j(unsigned int a){
     unsigned int temp1 = a<<11;
     unsigned int temp2 = temp1>>31;
     return temp2;
