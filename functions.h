@@ -6,7 +6,7 @@
 using namespace std;
 
 vector<string> output;
-vector<pair<int, int>> labels;
+unordered_map<int, vector<int>> labels;
 
 unsigned int imm20(unsigned int a){
     unsigned int temp = a>>31;

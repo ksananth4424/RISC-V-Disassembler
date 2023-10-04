@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <unordered_map>
 #include "functions.h"
 #include "J_format.cpp"
 #include "U_format.cpp"
@@ -46,9 +47,13 @@ int main(){
             outputU(input[i], i);
         }
     }
+    int temp = 1;
     for(auto x: labels){
-        output[x.first] += "L1";
-        output[x.first + x.second] = "L1: " + output[x.first + x.second];
+        output[x.first] = "L" + to_string(temp) + ": " + output[x.first];
+        for(int i=0; i<x.second.size(); i++){
+            output[x.second[i]] += "L" + to_string(temp);
+        }
+        temp++;
     }
     for(int i=0; i<output.size(); i++){
         cout<<output[i]<<endl;

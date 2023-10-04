@@ -16,6 +16,6 @@ void outputJ(string temp, int i){
     string ans = "jal x";
     ans+= to_string(numrd);
     ans+= ", ";
-    labels.push_back({i-1, num});
+    labels[num + i - 1].push_back(i-1);
     output.push_back(ans);
 }
