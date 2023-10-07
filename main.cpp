@@ -19,10 +19,10 @@ unsigned int opcode(unsigned int a){
     return temp2;
 }
 
-int main(){
+int main(int argc, char *argv[]){
     fstream file;
     std::vector<string> input;
-    file.open("input.txt", ios::in);
+    file.open(argv[1], ios::in);
     if(file.is_open()){
         string temp;
         while(getline(file, temp)){
