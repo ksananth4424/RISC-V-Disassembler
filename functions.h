@@ -10,7 +10,7 @@ unordered_map<int, vector<int>> labels;
 
 unsigned int imm105(unsigned int a){
     unsigned int temp1 = a<<1;
-    unsigned int temp2 = a>>26;
+    unsigned int temp2 = temp1>>26;
     return temp2;
 }
 

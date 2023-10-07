@@ -50,7 +50,7 @@ int main(){
     }
     int temp = 1;
     for(auto x: labels){
-        output[x.first] = "L" + to_string(temp) + ": " + output[x.first];
+        output[x.first] = "\nL" + to_string(temp) + ": " + output[x.first];
         for(int i=0; i<x.second.size(); i++){
             output[x.second[i]] += "L" + to_string(temp);
         }
