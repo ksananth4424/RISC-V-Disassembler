@@ -13,6 +13,14 @@
 
 using namespace std;
 
+string remove_spaces(const string &s)
+{
+    int last = s.size() - 1;
+    while (last >= 0 && s[last] == ' ')
+        --last;
+    return s.substr(0, last + 1);
+}
+
 unsigned int opcode(unsigned int a){
     unsigned int temp1 = a<<25;
     unsigned int temp2 = temp1>>25;
@@ -26,6 +34,7 @@ int main(int argc, char *argv[]){
     if(file.is_open()){
         string temp;
         while(getline(file, temp)){
+            temp = remove_spaces(temp);
             input.push_back(temp);
         }
     }else{

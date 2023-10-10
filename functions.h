@@ -98,6 +98,12 @@ unsigned int imm(unsigned int a){
     return temp;
 }
 
+unsigned int immshift(unsigned int a){
+    unsigned int temp1 = a<<6;
+    unsigned int temp2 = temp1>>27;
+    return temp2;
+}
+
 unsigned int rd(unsigned int a){
     unsigned int temp1 = a<<20;
     unsigned int temp2 = temp1>>27;
