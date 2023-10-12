@@ -13,7 +13,7 @@ void outputI(string temp, int opcode, int i){
     unsigned int numrs1 = rs1(decimal);
     unsigned int numfunct3 = funct3(decimal);
     unsigned int numrd = rd(decimal);
-    bool flag = 3;
+    int flag = 1;
     string ans = "";
     if(opcode == 19 && numfunct3 == 0)ans+="addi x";
     if(opcode == 19 && numfunct3 == 4)ans+="xori x";
@@ -21,16 +21,17 @@ void outputI(string temp, int opcode, int i){
     if(opcode == 19 && numfunct3 == 7)ans+="andi x";
     if(opcode == 19 && numfunct3 == 1 && numfunct7 == 0)ans+="slli x", flag=2;
     if(opcode == 19 && numfunct3 == 5 && numfunct7 == 0)ans+="srli x", flag=2;
-    if(opcode == 19 && numfunct3 == 5 && numfunct7 == 32)ans+="srai x", flag=2;
-    if(opcode == 3 && numfunct3 == 0)ans+="lb x", flag = 1;
-    if(opcode == 3 && numfunct3 == 1)ans+="lh x", flag = 1;
-    if(opcode == 3 && numfunct3 == 2)ans+="lw x", flag = 1;
-    if(opcode == 3 && numfunct3 == 3)ans+="ld x", flag = 1;
-    if(opcode == 3 && numfunct3 == 4)ans+="lbu x", flag = 1;
-    if(opcode == 3 && numfunct3 == 5)ans+="lhu x", flag = 1;
-    if(opcode == 3 && numfunct3 == 6)ans+="lwu x", flag = 1;
-    if(opcode == 103 && numfunct3 == 0)ans+="jalr x", flag = 1;
+    if(opcode == 19 && numfunct3 == 5 && numfunct7 == 16)ans+="srai x", flag=2;
+    if(opcode == 3 && numfunct3 == 0)ans+="lb x", flag = 3;
+    if(opcode == 3 && numfunct3 == 1)ans+="lh x", flag = 3;
+    if(opcode == 3 && numfunct3 == 2)ans+="lw x", flag = 3;
+    if(opcode == 3 && numfunct3 == 3)ans+="ld x", flag = 3;
+    if(opcode == 3 && numfunct3 == 4)ans+="lbu x", flag = 3;
+    if(opcode == 3 && numfunct3 == 5)ans+="lhu x", flag = 3;
+    if(opcode == 3 && numfunct3 == 6)ans+="lwu x", flag = 3;
+    if(opcode == 103 && numfunct3 == 0)ans+="jalr x", flag = 3;
     if(numimm>2047)numimm-=4096;
+    if(numimmshift>1023)numimmshift-=1024;
     if(flag == 1){
         ans+=to_string(numrd);
         ans+=", x";

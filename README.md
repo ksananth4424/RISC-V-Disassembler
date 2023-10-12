@@ -11,7 +11,8 @@ To run the program:
 
         $ ./main <file_name>
         
-        for example: $ ./main input.txt
+        for example: 
+        $ ./main input.txt
 
 Input: The input is of hexadecimal machine level code listed line by line.
 

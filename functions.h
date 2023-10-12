@@ -100,7 +100,7 @@ unsigned int imm(unsigned int a){
 
 unsigned int immshift(unsigned int a){
     unsigned int temp1 = a<<6;
-    unsigned int temp2 = temp1>>27;
+    unsigned int temp2 = temp1>>26;
     return temp2;
 }
 
